@@ -1,3 +1,5 @@
+[![Build](https://github.com/kaustavb12/rexray-plugin-installer/actions/workflows/docker-image.yml/badge.svg)](https://github.com/kaustavb12/rexray-plugin-installer/actions?query=workflow%3ABuild)
+
 ## Rexray Plugin Installer
 
 Docker image with embedded shell script to install or update Rexray plug-in to nodes in Docker Swarm Clusters
