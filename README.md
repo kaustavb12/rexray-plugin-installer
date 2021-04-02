@@ -4,6 +4,8 @@ Docker image with embedded shell script to install or update Rexray plug-in to n
 
 *Currently only `rexray/dobs` plug-in is supported. Support for other rexray plug-ins to be included later.*
 
+##
+
 ### Usage
 
 ```
@@ -18,6 +20,7 @@ Docker image with embedded shell script to install or update Rexray plug-in to n
 
 `-u` **Optional** Force Update installed plug-in irrespective of plug-in version installed
 
+##
 
 ### Script Behaviour
 
