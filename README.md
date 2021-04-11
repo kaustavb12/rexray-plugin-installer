@@ -20,7 +20,7 @@ install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIV
 
 `--update` **Optional** Force Update installed plug-in irrespective of plug-in version installed
 
-#### rexray/dobs Driver Options
+### rexray/dobs Driver Options
 
 `--do-secret <do_token_secret>` **Mandatory** Docker secret holding the DigitalOcean Access Token to be used to set DOBS_TOKEN. **Do not use the actual API Token.** It is assumed that the secret is mounted in the default location `/run/secrets/<do-token-secret>`
 
@@ -36,7 +36,7 @@ install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIV
 
 `--http-proxy <proxy_endpoint>` **Optional** Set HTTP_PROXY - Address of HTTP proxy server to gain access to API endpoint
 
-#### rexray/s3fs Driver Options
+### rexray/s3fs Driver Options
 
 `--aws-accesskey-secret <s3_accesskey_secret>` **Mandatory** Docker Secret holding the AWS Access Key ID to be used to set S3FS_ACCESSKEY. **Do not use the actual API Token.** It is assumed that the secret is mounted in the default location `/run/secrets/<s3_accesskey_secret>`
 
