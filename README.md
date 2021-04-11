@@ -11,7 +11,7 @@ Docker image with embedded shell script to install or update Rexray plug-in to n
 ### Usage
 
 ```
-./install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIVER-OPTIONS
+install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIVER-OPTIONS
 ```
 
 `--driver <plugin>` **Mandatory** Rexray plugin driver. Current only `rexray/dobs` and `rexray/s3fs` are supported.
