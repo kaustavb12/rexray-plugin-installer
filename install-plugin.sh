@@ -16,8 +16,8 @@ DO_USAGE="DigitalOcean DRIVER OPTIONS\n
 \t[--http-proxy <proxy_endpoint>]\tSet HTTP_PROXY - Address of HTTP proxy server to gain access to API endpoint"
 
 S3_USAGE="AWS S3 DRIVER OPTIONS\n
-\t--aws-accesskey-secret <s3_accesskey_secret>\tDocker Secret container AWS Access Key to be used to set S3FS_ACCESSKEY\n
-\t--aws-secretkey-secret <s3_secretkey_secret>\tDocker Secret container AWS Secret Key to be used to set S3FS_SECRETKEY\n
+\t--aws-accesskey-secret <s3_accesskey_secret>\tDocker Secret containing AWS Access Key to be used to set S3FS_ACCESSKEY\n
+\t--aws-secretkey-secret <s3_secretkey_secret>\tDocker Secret containing AWS Secret Key to be used to set S3FS_SECRETKEY\n
 \t[--s3-disable-pathstyle]\t\t\tSet S3FS_DISABLEPATHSTYLE to true\n
 \t[--s3-max-retry <count>]\t\t\tSet S3FS_MAXRETRIES - The number of retries that will be made for failed operations by the AWS SDK\n
 \t[--s3-region <s3_region>]\t\t\tSet S3FS_REGION - The AWS region\n
