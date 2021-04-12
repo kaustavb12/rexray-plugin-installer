@@ -14,7 +14,7 @@ Docker image with embedded shell script to install or update Rexray plug-in to n
 install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIVER-OPTIONS
 ```
 
-`--driver <plugin>` **Mandatory** Rexray plugin driver. Current only `rexray/dobs` and `rexray/s3fs` are supported.
+`--driver <plugin>` **Mandatory** Rexray plugin driver. Currently only `rexray/dobs` and `rexray/s3fs` are supported.
 
 `--version <plugin-version>` **Optional** The plug-in version tag to installed. Can be either *latest* or specific tag like *0.11.4*
 
@@ -24,7 +24,7 @@ install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIV
 
 `--do-secret <do_token_secret>` **Mandatory** Docker secret holding the DigitalOcean Access Token to be used to set DOBS_TOKEN. **Do not use the actual API Token.** It is assumed that the secret is mounted in the default location */run/secrets/<do_token_secret>*
 
-`--do-region <do_region>` **Mandatory** Set DOBS_REGION - The region where volumes should be created. Example : *blr1, fra1, nyc3*,etc.
+`--do-region <do_region>` **Mandatory** Set DOBS_REGION - The region where volumes should be created. Example : *blr1, fra1, nyc3*, etc.
 
 `--do-convert-underscore` **Optional** Set DOBS_CONVERTUNDERSCORES to *true*
 
@@ -62,6 +62,6 @@ install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIV
 
 3. If specific version is provided `--version 0.11.4`, the script installs plug-in using that specific tag to nodes. If plug-in is already installed, script checks the tag of the installed plug-in. If the installed tag does not match the provided tag (including installed tag being `latest`), then the plug-in is updated using the provided tag.
 
-4. If force update option `--update` is used, the script updates plug-in already installed irrespective of the installed tag and provided tag. If plug-in is not already installed, then it is installed with appropriate tag. This is useful if any driver options needs to be updated without changing the version tag.
+4. If force update option `--update` is used, the script updates plug-in already installed irrespective of the installed tag and provided tag. If plug-in is not already installed, then it is installed with appropriate tag. This is useful if any driver options need to be updated without changing the version tag.
 
-**NOTE:** *To update an already installed plug-in, the plug-in is first removed and then re-installed with appropriate tag.*
+**NOTE:** *To update an already installed plug-in, the plug-in is first removed and then re-installed with appropriate tag and options.*
