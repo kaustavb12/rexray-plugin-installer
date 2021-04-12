@@ -6,7 +6,7 @@ Docker image with embedded shell script to install or update Rexray plug-in to n
 
 *Currently only `rexray/dobs` and `rexray/s3fs` plug-ins are supported. Support for other rexray plug-ins to be included later.*
 
-##
+## 
 
 ### Usage
 
@@ -52,7 +52,61 @@ install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIV
 
 `--http-proxy <proxy_endpoint>` **Optional** Set HTTP_PROXY - Address of HTTP proxy server to gain access to API endpoint
 
-##
+
+```
+$ ./install-plugin.sh --help
+
+Usage: install-plugin.sh --driver <plugin> [--version <plugin-version>] [--update] DRIVER-OPTIONS
+
+REXRAY PLUGINS SUPPORTED
+  dobs    DigitalOcean Block Storage
+  s3fs    AWS S3
+
+DigitalOcean DRIVER OPTIONS
+  --do-secret <do_token_secret>   Docker Secret containing DigitalOcean Access Token to be used to set DOBS_TOKEN
+  --do-region <do_region>         Set DOBS_REGION - The region where volumes should be created
+  [--do-convert-underscore]       Set DOBS_CONVERTUNDERSCORES to true
+  [--do-init-delay <time>]        Set DOBS_STATUSINITIALDELAY - Time duration used to wait when polling volume status
+  [--do-max-attempts <count>]     Set DOBS_STATUSMAXATTEMPTS - Number of times the status of a volume will be queried before giving up
+  [--do-status-timeout <time>]    Set DOBS_STATUSTIMEOUT - Maximum length of time that polling for volume status can occur
+  [--http-proxy <proxy_endpoint>] Set HTTP_PROXY - Address of HTTP proxy server to gain access to API endpoint
+
+AWS S3 DRIVER OPTIONS
+  --aws-accesskey-secret <s3_accesskey_secret>    Docker Secret container AWS Access Key to be used to set S3FS_ACCESSKEY
+  --aws-secretkey-secret <s3_secretkey_secret>    Docker Secret container AWS Secret Key to be used to set S3FS_SECRETKEY
+  [--s3-disable-pathstyle]                        Set S3FS_DISABLEPATHSTYLE to true
+  [--s3-max-retry <count>]                        Set S3FS_MAXRETRIES - The number of retries that will be made for failed operations by the AWS SDK
+  [--s3-region <s3_region>]                       Set S3FS_REGION - The AWS region
+  [--s3-options <s3_options>]                     Set S3FS_OPTION - Additional options to pass to S3FS
+  [--http-proxy <proxy_endpoint>]                 Set HTTP_PROXY - Address of HTTP proxy server to gain access to API endpoint
+```
+
+## 
+
+### Usage Example Stack
+
+```
+version: "3.8"
+
+services:
+  install-rexray-plugin:
+    image: "kaustavb12/rexray-plugin-installer"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    secrets:
+      - rexray_do_token
+    command: sh -c "./install-plugin.sh --driver dobs --version 0.11.4 --do-secret rexray_do_token --do-region blr1 --do-convert-underscore"
+    deploy:
+      mode: global
+      restart_policy:
+        condition: on-failure
+
+secrets:
+  rexray_do_token:
+    external: true
+```
+
+## 
 
 ### Script Behaviour
 
