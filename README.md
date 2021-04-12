@@ -83,7 +83,7 @@ AWS S3 DRIVER OPTIONS
 
 ## 
 
-### Usage Example Stack
+### Sample Stack
 
 ```
 version: "3.8"
